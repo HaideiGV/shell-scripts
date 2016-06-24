@@ -1,9 +1,12 @@
 @echo off
 
+Rem psql -d testdb -U haidei -c "select * from querylist" > outw.txt
+
 Setlocal EnableDelayedExpansion
 set LIST=
-for %%i in (*.sql) do set LIST=!LIST! %%i
+for %%i in (*createtable.sql) do set LIST=!LIST! %%i
 echo %LIST%
 
-rem Searching all files with sql extension
-FOR /R C:\envdata\shell-scripts\linux-shell\test\ %%i in (*.sql) do echo %%~nxi
+for %%num in ("%LIST%") do (
+	echo %%num
+)
